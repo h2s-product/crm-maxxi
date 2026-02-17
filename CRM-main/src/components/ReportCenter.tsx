@@ -334,7 +334,7 @@ const ReportCenter: React.FC = () => {
                 <div className="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 w-fit">
                     <button 
                         onClick={() => setActiveTab('SALES')} 
-                        className={`px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2 ${activeTab === 'SALES' ? 'bg-maxxi-primary text-white shadow-lg' : 'text-slate-500 hover:text-slate-800'}`}
+                        className={`px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2 ${activeTab === 'SALES' ? 'bg-[#D32F2F] text-white shadow-lg' : 'text-slate-500 hover:text-[#D32F2F] hover:bg-red-50' }`}
                     >
                         <TrendingUp size={16} /> Penjualan
                     </button>
