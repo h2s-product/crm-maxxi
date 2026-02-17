@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Definisikan warna merah utama di sini */
+    --maxxi-primary: 211 47 47; /* Format RGB: #D32F2F */
+  }
+
+  body {
+    @apply bg-[#F5F6F8] text-slate-800 antialiased;
+  }
+}
+
+@layer components {
+  /* Utility untuk custom scrollbar agar sidebar terlihat rapi */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    @apply bg-slate-400;
+  }
+
+  /* Fix untuk tombol agar tidak ada outline biru saat diklik */
+  button {
+    @apply outline-none focus:outline-none;
+  }
+}
+
+/* Penambahan manual jika tailwind config belum diupdate */
+.bg-maxxi-primary {
+  background-color: rgb(var(--maxxi-primary));
+}
+.text-maxxi-primary {
+  color: rgb(var(--maxxi-primary));
+}
