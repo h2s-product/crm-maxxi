@@ -82,3 +82,22 @@ export const crmService = {
 };
 
 export default crmService;
+
+// MOCK STOCK CHECK
+export const checkStockAvailability = async (productId: string) => {
+
+  // mock data stok
+  const mockStock = {
+    available: true,
+    quantity: Math.floor(Math.random() * 10) + 1,
+    warehouse: "Main Warehouse",
+    estimatedRestock: null,
+  };
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(mockStock);
+    }, 300);
+  });
+
+};
