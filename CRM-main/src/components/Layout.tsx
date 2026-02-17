@@ -96,7 +96,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate, user
           <div className={`${!sidebarOpen && 'hidden'} overflow-hidden transition-all duration-300`}>
              <span className="text-[10px] block font-black text-slate-500 uppercase tracking-[0.2em]">CRM Console</span>
           </div>
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-slate-300/50 rounded-lg text-slate-500 transition-colors">
+            <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 rounded-lg transition-colors text-slate-600 hover:bg-red-600 hover:text-white">
             <Menu size={20} />
           </button>
         </div>
