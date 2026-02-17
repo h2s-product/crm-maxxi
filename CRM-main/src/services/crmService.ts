@@ -1,13 +1,11 @@
 /**
- * CRM SERVICE - FULL MOCK VERSION
- * Safe for Netlify deployment
- * No backend required
- * Replace later with real API
+ * FULL MOCK CRM SERVICE
+ * Netlify-safe, no backend required
  */
 
-///////////////////////////////
-// GENERIC HELPERS
-///////////////////////////////
+////////////////////////////
+// HELPERS
+////////////////////////////
 
 const simulateDelay = (ms = 300) =>
   new Promise(resolve => setTimeout(resolve, ms));
@@ -16,9 +14,9 @@ const generateId = (prefix: string) =>
   `${prefix}-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
 
-///////////////////////////////
+////////////////////////////
 // AUTH
-///////////////////////////////
+////////////////////////////
 
 export const login = async (username: string, password: string) => {
 
@@ -27,39 +25,38 @@ export const login = async (username: string, password: string) => {
   return {
     success: true,
     user: {
-      id: "USER-001",
+      id: generateId("USER"),
       name: username,
-      role: "ADMIN",
-      email: `${username}@crm.local`
+      email: `${username}@crm.local`,
+      role: "ADMIN"
     }
   };
 
 };
 
 
-///////////////////////////////
+////////////////////////////
 // DASHBOARD
-///////////////////////////////
+////////////////////////////
 
 export const getDashboardStats = async () => {
 
   await simulateDelay();
 
   return {
-    totalLeads: 124,
-    totalDeals: 32,
-    totalRevenue: 820000000,
-    conversionRate: 26,
-    activeServiceTickets: 8,
-    pendingDemo: 5
+    leads: 120,
+    deals: 45,
+    revenue: 850000000,
+    pendingDemo: 6,
+    serviceTickets: 4
   };
 
 };
 
 
-///////////////////////////////
+////////////////////////////
 // LEADS
-///////////////////////////////
+////////////////////////////
 
 export const getLeads = async () => {
 
@@ -69,7 +66,7 @@ export const getLeads = async () => {
 
 };
 
-export const createLead = async (leadData: any) => {
+export const createLead = async (lead: any) => {
 
   await simulateDelay();
 
@@ -80,40 +77,12 @@ export const createLead = async (leadData: any) => {
 
 };
 
-export const updateLead = async (leadData: any) => {
 
-  await simulateDelay();
+////////////////////////////
+// DEMO
+////////////////////////////
 
-  return {
-    success: true
-  };
-
-};
-
-export const deleteLead = async () => {
-
-  await simulateDelay();
-
-  return {
-    success: true
-  };
-
-};
-
-
-///////////////////////////////
-// DEMO SCHEDULER
-///////////////////////////////
-
-export const getDemoSchedules = async () => {
-
-  await simulateDelay();
-
-  return [];
-
-};
-
-export const scheduleDemo = async (demoData: any) => {
+export const scheduleDemo = async (data: any) => {
 
   await simulateDelay();
 
@@ -125,33 +94,7 @@ export const scheduleDemo = async (demoData: any) => {
 
 };
 
-export const updateDemoStatus = async () => {
-
-  await simulateDelay();
-
-  return {
-    success: true
-  };
-
-};
-
-
-///////////////////////////////
-// QUOTE BUILDER
-///////////////////////////////
-
-export const createQuote = async (quoteData: any) => {
-
-  await simulateDelay();
-
-  return {
-    success: true,
-    quoteId: generateId("QUOTE")
-  };
-
-};
-
-export const getQuotes = async () => {
+export const getDemoSchedules = async () => {
 
   await simulateDelay();
 
@@ -159,27 +102,19 @@ export const getQuotes = async () => {
 
 };
 
-export const convertQuoteToDeal = async () => {
+
+////////////////////////////
+// QUOTES
+////////////////////////////
+
+export const createQuote = async (data: any) => {
 
   await simulateDelay();
 
   return {
     success: true,
-    dealId: generateId("DEAL")
+    id: generateId("QUOTE")
   };
-
-};
-
-
-///////////////////////////////
-// INVENTORY
-///////////////////////////////
-
-export const getInventory = async () => {
-
-  await simulateDelay();
-
-  return [];
 
 };
 
@@ -189,28 +124,18 @@ export const checkStockAvailability = async (productId?: string) => {
 
   return {
     available: true,
-    quantity: 12,
+    quantity: 15,
     warehouse: "Jakarta"
   };
 
 };
 
-export const updateStock = async () => {
 
-  await simulateDelay();
+////////////////////////////
+// SERVICE
+////////////////////////////
 
-  return {
-    success: true
-  };
-
-};
-
-
-///////////////////////////////
-// SERVICE TICKETS
-///////////////////////////////
-
-export const createServiceTicket = async (ticketData: any) => {
+export const createServiceTicket = async (ticket: any) => {
 
   await simulateDelay();
 
@@ -230,30 +155,23 @@ export const getServiceTickets = async () => {
 
 };
 
-export const updateServiceTicket = async () => {
+
+////////////////////////////
+// INVENTORY
+////////////////////////////
+
+export const getInventory = async () => {
 
   await simulateDelay();
 
-  return {
-    success: true
-  };
-
-};
-
-export const closeServiceTicket = async () => {
-
-  await simulateDelay();
-
-  return {
-    success: true
-  };
+  return [];
 
 };
 
 
-///////////////////////////////
-// CUSTOMERS
-///////////////////////////////
+////////////////////////////
+// CUSTOMER
+////////////////////////////
 
 export const getCustomers = async () => {
 
@@ -263,58 +181,10 @@ export const getCustomers = async () => {
 
 };
 
-export const createCustomer = async (customer: any) => {
 
-  await simulateDelay();
-
-  return {
-    success: true,
-    customerId: generateId("CUST")
-  };
-
-};
-
-
-///////////////////////////////
-// SHOWROOM
-///////////////////////////////
-
-export const getShowrooms = async () => {
-
-  await simulateDelay();
-
-  return [];
-
-};
-
-
-///////////////////////////////
-// CAMPAIGNS
-///////////////////////////////
-
-export const getCampaigns = async () => {
-
-  await simulateDelay();
-
-  return [];
-
-};
-
-export const createCampaign = async (campaign: any) => {
-
-  await simulateDelay();
-
-  return {
-    success: true,
-    campaignId: generateId("CMP")
-  };
-
-};
-
-
-///////////////////////////////
-// USERS
-///////////////////////////////
+////////////////////////////
+// USER
+////////////////////////////
 
 export const getUsers = async () => {
 
@@ -324,4 +194,54 @@ export const getUsers = async () => {
 
 };
 
-export const createUser = async (user:
+export const createUser = async (user: any) => {
+
+  await simulateDelay();
+
+  return {
+    success: true,
+    userId: generateId("USER")
+  };
+
+};
+
+
+////////////////////////////
+// CAMPAIGN
+////////////////////////////
+
+export const getCampaigns = async () => {
+
+  await simulateDelay();
+
+  return [];
+
+};
+
+
+////////////////////////////
+// REPORT
+////////////////////////////
+
+export const getReports = async () => {
+
+  await simulateDelay();
+
+  return [];
+
+};
+
+
+////////////////////////////
+// TARGET
+////////////////////////////
+
+export const setSalesTarget = async () => {
+
+  await simulateDelay();
+
+  return {
+    success: true
+  };
+
+};
