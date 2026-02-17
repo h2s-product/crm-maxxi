@@ -1,0 +1,7 @@
+{
+  "name": "MAXXI CORIN Enterprise CRM",
+  "description": "Comprehensive CRM for PT. MAXXI (Corin Mulia Gemilang) managing heavy equipment sales, smart farming assets, and after-sales service.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
